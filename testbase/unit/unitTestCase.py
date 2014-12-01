@@ -54,4 +54,3 @@ class UnitTestCase(TestCase, BaseTestCase):
         Assert that the HTTP status of the given response is 401, Unauthorized.
         """
         self.assertEqual(401, response.status_code)
-

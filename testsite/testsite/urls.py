@@ -1,7 +1,8 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import patterns, url
+from testapp.views import requiresLogin
+
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'testsite.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
+    url(r'^login_required/$', requiresLogin, name='requires_login'),
 )
+
