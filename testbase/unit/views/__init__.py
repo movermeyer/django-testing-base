@@ -1,1 +1,1 @@
-from unit.views.requiresLogin import RequiresLogin
+from testbase.unit.views.requiresLogin import RequiresLogin
