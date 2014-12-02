@@ -1,9 +1,6 @@
 django-testing-base
 ===================
 
-Django Testing Base provides base Test Case and mixin classes that encapsulate common testing operations and patterns. 
-They do  the "right" thing whether you're testing individual units of code or entire live pages using selenium.
-
 .. image:: https://readthedocs.org/projects/django-testing-base/badge/?version=latest
     :target: http://django-testing-base.readthedocs.org/en/latest/
     :alt: Documentation
@@ -27,4 +24,30 @@ They do  the "right" thing whether you're testing individual units of code or en
 .. image:: https://pypip.in/license/django-testing-base/badge.svg?style=flat
     :target: https://pypi.python.org/pypi/django-testing-base/
     :alt: License
+
+Django Testing Base provides base Test Case and mixin classes that encapsulate common testing operations and patterns. 
+They do  the "right" thing whether you're testing individual units of code or entire live pages using selenium.
+
+Read the [official documentation](http://django-testing-base.readthedocs.org/en/latest/).
+
+Features
+--------
+
+* Generate test data
+* Create and login users
+* Common assertions
+* Run selenium tests at different browser dimensions
+* Base implementation of Page Object pattern
+
+Installation
+------------
+
+Install django-testing-base using pip:
+
+    pip install django-testing-base
+
+License
+-------
+
+The project is licensed under the MIT license.
 
