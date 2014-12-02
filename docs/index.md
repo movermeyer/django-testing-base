@@ -2,7 +2,7 @@
 
 [![Latest Version](https://pypip.in/version/django-testing-base/badge.svg?text=version)](https://pypi.python.org/pypi/django-testing-base/)
 [![Development Status](https://pypip.in/status/django-testing-base/badge.svg)](https://pypi.python.org/pypi/django-testing-base/)
-[![Downloads](https://pypip.in/download/django-testing-base/badge.svg)](https://pypi.python.org/pypi/django-testing-base/)
+[![Downloads](https://pypip.in/download/django-testing-base/badge.svg?period=month)](https://pypi.python.org/pypi/django-testing-base/)
 [![Supported Python versions](https://pypip.in/py_versions/django-testing-base/badge.svg)](https://pypi.python.org/pypi/django-testing-base/)
 [![License](https://pypip.in/license/django-testing-base/badge.svg)](https://pypi.python.org/pypi/django-testing-base/)
 

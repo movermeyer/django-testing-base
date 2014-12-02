@@ -13,7 +13,7 @@ django-testing-base
     :target: https://pypi.python.org/pypi/django-testing-base/
     :alt: Development Status
 
-.. image:: https://pypip.in/download/django-testing-base/badge.svg?style=flat
+.. image:: https://pypip.in/download/django-testing-base/badge.svg?period=month&style=flat
     :target: https://pypi.python.org/pypi//django-testing-base/
     :alt: Downloads
 
