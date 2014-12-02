@@ -1,0 +1,6 @@
+site_name: django-testing-base
+theme: readthedocs
+repo_url: https://github.com/tctimmeh/django-testing-base
+pages:
+- [index.md, Home]
+- [base.md, Base Class]
