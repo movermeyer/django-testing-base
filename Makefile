@@ -2,6 +2,7 @@ VENV_NAME ?= venv
 PIP ?= pip
 
 ACTIVATE_VENV = . $(VENV_NAME)/bin/activate
+MANAGE = testsite/manage.py
 SETUP = ./setup.py
 
 pip: venv
@@ -15,3 +16,11 @@ venv:
 clean:
 	-rm -rf dist *.egg-info
 
+test:
+	$(ACTIVATE_VENV) && $(MANAGE) test testapp
+
+sdist:
+	$(ACTIVATE_VENV) && $(SETUP) sdist
+
+upload:
+	$(ACTIVATE_VENV) && $(SETUP) sdist upload
