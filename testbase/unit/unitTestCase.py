@@ -36,3 +36,8 @@ class UnitTestCase(TestCase, BaseTestCase):
 
     def assertResponseStatusIsUnauthorized(self, response):
         self.assertEqual(401, response.status_code)
+
+    def assertContextValueEqual(self, response, contextVariableName, expectedValue):
+        if contextVariableName not in response.context:
+            raise AssertionError('Variable {} not found in context'.format(contextVariableName))
+        self.assertEqual(expectedValue, response.context[contextVariableName])

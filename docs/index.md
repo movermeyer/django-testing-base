@@ -26,7 +26,7 @@ An example unit test:
             user = self.createUser()
             response = self.client.get(reverse('the_url'))
             self.assertResponseStatusIsOk(response)
-            self.assertEqual(user.username, response.context['the_guy'])
+            self.assertContextValueEqual(response, 'context_var', user.username)
 
 An example browser test using the Page Object pattern:
 
