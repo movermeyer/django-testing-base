@@ -55,8 +55,8 @@ Install Django Testing Base using pip:
 
 ## Contribute
 
-- Issue Tracker: https://github.com/tctimmeh/django-testing-base/issues
-- Source Code: https://github.com/tctimmeh/django-testing-base
+- Issue Tracker: [https://github.com/tctimmeh/django-testing-base/issues](https://github.com/tctimmeh/django-testing-base/issues)
+- Source Code: [https://github.com/tctimmeh/django-testing-base](https://github.com/tctimmeh/django-testing-base)
 
 ## License
 
