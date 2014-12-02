@@ -4,7 +4,7 @@ from testbase.unit import UnitTestCase
 
 
 class TestExpireSession(UnitTestCase):
-    def test_expiresClientSessionForNextRequest(self):
+    def test_expiresUserSessionForNextRequest(self):
         loginRequiredUrl = reverse('requires_login')
 
         user = self.createUser()

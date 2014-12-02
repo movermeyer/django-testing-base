@@ -47,5 +47,6 @@ For browser tests this method will direct the browser trigger a log out operatio
 
 ### expireSession(session)
 
-Cause the given session object to expire immediately.
+Cause the given session object to expire immediately. When using `UnitTestCase` the `session` argument can be
+omitted. In this case the test client's session (i.e. `self.client.session`) will be expired.
 

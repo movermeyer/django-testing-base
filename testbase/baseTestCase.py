@@ -27,24 +27,9 @@ class BaseTestCase(ABC):
         return self._loggedInUser
 
     def randStr(self, length=10):
-        """
-        Create a random string of ascii letters and digits
-
-        :param length: length of the string. default = 10 characters
-        :return: a randomized string
-        """
         return ''.join(choice(string.ascii_letters + string.digits) for x in range(length))
 
     def createUser(self, userName=None, password=None, *, email=None):
-        """
-        Create a `User` in the database. Log the user in using the :method:`UnitTestCase.logInAs` or
-        :method:`BrowserTestCase.logInAs` method.
-
-        :param userName: Name for the user. A random username will be created if none is given.
-        :param password: Password for the user. A random password will be created if none is given.
-        :param email: Email address for the user. A random email address will be created if none is given.
-        :return: The newly created `User` object.
-        """
         userName = userName or self.randStr()
         password = password or self.randStr()
         email = email or '%s@host.com' % self.randStr()
@@ -55,9 +40,6 @@ class BaseTestCase(ABC):
         return user
 
     def createAdminUser(self, userName=None, password=None, *, email=None, save=True):
-        """
-        As :method:`createUser` except that the new user has the is_staff flag.
-        """
         user = self.createUser(userName, password, email=email)
         user.is_staff = True
         if save:
@@ -65,30 +47,16 @@ class BaseTestCase(ABC):
         return user
 
     def createSuperUser(self, userName=None, password=None, email=None):
-        """
-        As :method:`createUser` except that the new user has the is_staff and is_superuser flags.
-        """
         user = self.createAdminUser(userName, password, email=email, save=False)
         user.is_superuser = True
         user.save()
         return user
 
     def expireSession(self, session):
-        """
-        Cause the given session to expire immediately.
-
-        :param session: The session to expire.
-        """
         session.set_expiry(-1)
         session.save()
 
     def getPasswordForUser(self, user, default=None):
-        """
-        Return the cached password for the given user.
-
-        :param user: The user for whom the password should be retreived
-        :param default: A default password to return if no cached password is found
-        """
         return self._passwordsByUser.get(user, default)
 
     def _cachePasswordForUser(self, user, password):
