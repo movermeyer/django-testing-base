@@ -24,7 +24,7 @@ An example unit test:
     class TestMyView(UnitTestCase):
         def test_somethingWithAUser(self):
             user = self.createUser()
-            response = self.client.get(reverse('the_url'))
+            response = self.get('some_url')
             self.assertResponseStatusIsOk(response)
             self.assertContextValueEqual(response, 'context_var', user.username)
 

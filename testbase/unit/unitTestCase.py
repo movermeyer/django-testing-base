@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.test import TestCase
 from testbase import BaseTestCase
 
@@ -23,6 +24,16 @@ class UnitTestCase(TestCase, BaseTestCase):
     def logOut(self):
         self.client.logout()
 
+    def get_url(self):
+        raise RuntimeError('UnitTestCase.get() called with no urlPattern but no get_url() method provided')
+
+    def get(self, urlPattern=None, *args, **kwargs):
+        if urlPattern is None:
+            url = self.get_url()
+        else:
+            url = reverse(urlPattern, args=args, kwargs=kwargs)
+        return self.client.get(url)
+
     def expireSession(self, session=None):
         if session is None:
             session = self.client.session
@@ -41,3 +52,4 @@ class UnitTestCase(TestCase, BaseTestCase):
         if contextVariableName not in response.context:
             raise AssertionError('Variable {} not found in context'.format(contextVariableName))
         self.assertEqual(expectedValue, response.context[contextVariableName])
+

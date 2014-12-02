@@ -6,6 +6,9 @@ from django.shortcuts import render
 def home(request):
     return render(request, 'home.html', {'context_var': 'expected'})
 
+def withUrlFields(request, value):
+    return HttpResponse(value)
+
 @login_required
 def requiresLogin(request):
     return HttpResponse('')

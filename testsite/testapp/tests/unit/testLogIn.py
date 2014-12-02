@@ -6,6 +6,6 @@ class TestLogIn(UnitTestCase):
     def test_logsInUserWithCachedPassword(self):
         user = self.createUser()
         self.logInAs(user)
-        response = self.client.get(reverse('requires_login'))
+        response = self.get('requires_login')
         self.assertResponseStatusIsOk(response)
 
