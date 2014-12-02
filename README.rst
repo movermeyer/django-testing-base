@@ -28,7 +28,7 @@ django-testing-base
 Django Testing Base provides base Test Case and mixin classes that encapsulate common testing operations and patterns. 
 They do  the "right" thing whether you're testing individual units of code or entire live pages using selenium.
 
-Read the [official documentation](http://django-testing-base.readthedocs.org/en/latest/).
+Read the `official documentation<http://django-testing-base.readthedocs.org/en/latest/>`_.
 
 Features
 --------
