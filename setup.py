@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 
 os.chdir(str(Path(__file__).parent))
-with open('README.rst') as f:
+with open('README.md') as f:
     README = f.read()
 with open('pip_requirements.txt') as f:
     REQUIREMENTS = f.readlines()
@@ -13,7 +13,7 @@ with open('pip_requirements.txt') as f:
 setup(
     name='django-testing-base',
     version='0.1.0',
-    packages=find_packages(include=['testbase*']),
+    packages=find_packages(exclude=['testsite']),
     include_package_data=True,
     install_requires=REQUIREMENTS,
     license='MIT License',
