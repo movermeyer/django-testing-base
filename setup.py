@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 
 os.chdir(str(Path(__file__).parent))
-with open('README.md') as f:
+with open('README.rst') as f:
     README = f.read()
 with open('pip_requirements.txt') as f:
     REQUIREMENTS = f.readlines()
