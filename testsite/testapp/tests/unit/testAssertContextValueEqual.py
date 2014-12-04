@@ -14,3 +14,7 @@ class TestAssertContextValueEqual(UnitTestCase):
     def test_raisesAssertionErrorIfContextValueNotPresent(self):
         response = self.get('home')
         self.assertRaises(AssertionError, self.assertContextValueEqual, response, self.randStr(), self.randStr())
+
+    def test_lastContextConsidersContextFromLastResponse(self):
+        self.get('home')
+        self.assertLastContextValueEqual('context_var', 'expected')

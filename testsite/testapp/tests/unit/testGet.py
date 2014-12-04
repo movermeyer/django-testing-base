@@ -16,3 +16,7 @@ class TestGet(UnitTestCase):
     def test_makesGetRequestToUrlFromFactoryMethod(self):
         response = self.get()
         self.assertContains(response, self.expected)
+
+    def test_makesResponseAvailableAsSelfDotResponse(self):
+        response = self.get()
+        self.assertIs(response, self.response)

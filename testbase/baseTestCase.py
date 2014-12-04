@@ -1,12 +1,12 @@
 import string
 
-from abc import ABC, abstractmethod
+from abc import ABCMeta, abstractmethod
 from random import choice
 from django.contrib.auth.models import User
 from django.utils import translation
 
 
-class BaseTestCase(ABC):
+class BaseTestCase(metaclass=ABCMeta):
     def __init__(self):
         self._loggedInUser = None
         self._passwordsByUser = {}

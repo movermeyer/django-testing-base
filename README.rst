@@ -5,7 +5,7 @@ django-testing-base
     :target: http://django-testing-base.readthedocs.org/en/latest/
     :alt: Documentation
     
-.. image:: https://pypip.in/version/django-testing-base/badge.svg?style=flat
+.. image:: https://pypip.in/version/django-testing-base/badge.svg?text=version&style=flat
     :target: https://pypi.python.org/pypi/django-testing-base/
     :alt: Latest Version
 
@@ -13,19 +13,22 @@ django-testing-base
     :target: https://pypi.python.org/pypi/django-testing-base/
     :alt: Development Status
 
-.. image:: https://pypip.in/download/django-testing-base/badge.svg?period=month&style=flat
-    :target: https://pypi.python.org/pypi//django-testing-base/
-    :alt: Downloads
-
 .. image:: https://pypip.in/py_versions/django-testing-base/badge.svg?style=flat
     :target: https://pypi.python.org/pypi/django-testing-base/
     :alt: Supported Python versions
+
+.. image:: http://img.shields.io/badge/django-1.6%2C%201.7-green.svg?style=flat
+    :alt: Django Version
 
 .. image:: https://pypip.in/license/django-testing-base/badge.svg?style=flat
     :target: https://pypi.python.org/pypi/django-testing-base/
     :alt: License
 
-Django Testing Base provides base Test Case and mixin classes that encapsulate common testing operations and patterns. 
+.. image:: https://pypip.in/download/django-testing-base/badge.svg?period=month&style=flat
+    :target: https://pypi.python.org/pypi//django-testing-base/
+    :alt: Downloads
+
+Django Testing Base provides base Test Case and mixin classes that encapsulate common testing operations and patterns.
 They do  the "right" thing whether you're testing individual units of code or entire live pages using selenium.
 
 Read the `official documentation <http://django-testing-base.readthedocs.org/en/latest/>`_.
