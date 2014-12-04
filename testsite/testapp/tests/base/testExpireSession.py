@@ -15,5 +15,5 @@ class TestExpireSession(UnitTestCase):
         response = self.client.get(loginRequiredUrl)
 
         expectedRedirect = '{}?next={}'.format(LOGIN_URL, loginRequiredUrl)
-        self.assertRedirects(response, expectedRedirect, target_status_code=404)
+        self.assertRedirects(response, expectedRedirect)
 
