@@ -5,6 +5,7 @@
 [![Supported Python versions](https://pypip.in/py_versions/django-testing-base/badge.svg)](https://pypi.python.org/pypi/django-testing-base/)
 ![Django versions](http://img.shields.io/badge/django-1.6%2C%201.7-green.svg)
 [![License](https://pypip.in/license/django-testing-base/badge.svg)](https://pypi.python.org/pypi/django-testing-base/)
+[![Requirements Status](https://img.shields.io/requires/github/tctimmeh/django-testing-base.svg)](https://requires.io/github/tctimmeh/django-testing-base/requirements/?branch=master)
 [![Downloads](https://pypip.in/download/django-testing-base/badge.svg?period=month)](https://pypi.python.org/pypi/django-testing-base/)
 
 Django Testing Base provides base Test Case and mixin classes that encapsulate common testing operations and patterns. 
@@ -25,9 +26,9 @@ An example unit test:
     class TestMyView(UnitTestCase):
         def test_somethingWithAUser(self):
             user = self.createUser()
-            response = self.get('some_url')
-            self.assertResponseStatusIsOk(response)
-            self.assertContextValueEqual(response, 'context_var', user.username)
+            self.get('some_named_url')
+            self.assertResponseStatusIsOk()
+            self.assertLastContextValueEqual('context_var', user.username)
 
 An example browser test using the Page Object pattern:
 

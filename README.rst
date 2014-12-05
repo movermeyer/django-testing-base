@@ -24,6 +24,10 @@ django-testing-base
     :target: https://pypi.python.org/pypi/django-testing-base/
     :alt: License
 
+.. image:: https://img.shields.io/requires/github/tctimmeh/django-testing-base.svg?style=flat)
+     :target: https://requires.io/github/tctimmeh/django-testing-base/requirements/?branch=master
+     :alt: Requirements Status
+
 .. image:: https://pypip.in/download/django-testing-base/badge.svg?period=month&style=flat
     :target: https://pypi.python.org/pypi//django-testing-base/
     :alt: Downloads

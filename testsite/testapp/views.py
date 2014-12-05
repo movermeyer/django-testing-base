@@ -11,7 +11,7 @@ def withUrlFields(request, value):
 
 @login_required
 def requiresLogin(request):
-    return HttpResponse('')
+    return HttpResponse('logged in')
 
 def httpStatus(request, status):
     return HttpResponse(status=int(status))

@@ -5,9 +5,9 @@ from testbase import BaseTestCase
 
 
 class UnitTestCase(TestCase, BaseTestCase):
-    def __init__(self, methodName):
-        BaseTestCase.__init__(self)
-        super().__init__(methodName)
+    def setUp(self):
+        BaseTestCase.setUp(self)
+        super().setUp()
         self._response = None
 
     def tearDown(self):

@@ -1,4 +1,6 @@
 import os
+from django.contrib.auth import SESSION_KEY
+from django.contrib.sessions.models import Session
 from selenium import webdriver
 from django.test import LiveServerTestCase
 from testbase import BaseTestCase
@@ -9,11 +11,9 @@ class BrowserTestCase(LiveServerTestCase, BaseTestCase):
     _browser = None
     _windowWidth = 1024
     _windowHeight = 768
-    _requiresLogin = False
-    _loggedInBrowserUser = None
+    _loginPage = None
 
     def __init__(self, methodName):
-        BaseTestCase.__init__(self)
         super().__init__(methodName)
         self._urlFields = {}
 
@@ -24,6 +24,8 @@ class BrowserTestCase(LiveServerTestCase, BaseTestCase):
         webDriverClass = getattr(webdriver, webDriverClassName)
         cls._browser = webDriverClass()
         cls._browser.set_window_size(cls._windowWidth, cls._windowHeight)
+        cls._savedObjects = set()
+        cls._loggedInUser = None
 
     @classmethod
     def tearDownClass(cls):
@@ -31,11 +33,13 @@ class BrowserTestCase(LiveServerTestCase, BaseTestCase):
         super().tearDownClass()
 
     def setUp(self):
+        BaseTestCase.setUp(self)
         super().setUp()
-        if self._requiresLogin and not self._loggedInBrowserUser:
+        self._restoreSavedObjects()
+        if self._loginPage is not None and not type(self)._loggedInUser:
             user = self.createUser()
             self.logInAs(user)
-            self._loggedInBrowserUser = user
+            self._saveUserAndSession(user)
         self.browseToPageUnderTest()
 
     @property
@@ -46,22 +50,6 @@ class BrowserTestCase(LiveServerTestCase, BaseTestCase):
     def browser(self):
         return self._browser
 
-    def getWindowWidth(self):
-        return self._windowWidth
-
-    def setWindowWidth(self):
-        self.browser.set_window_size(self.windowWidth, self.windowHeight)
-
-    windowWidth = property(getWindowWidth, setWindowWidth)
-
-    def getWindowHeight(self):
-        return self._windowHeight
-
-    def setWindowHeight(self):
-        self.browser.set_window_size(self.windowWidth, self.windowHeight)
-
-    windowHeight = property(getWindowHeight, setWindowHeight)
-
     def browseToPage(self, cls, **urlFields):
         self.page = cls.get(self._browser, self.live_server_url, **urlFields)
 
@@ -69,7 +57,33 @@ class BrowserTestCase(LiveServerTestCase, BaseTestCase):
         self.browseToPage(self._pageClass, **self._urlFields)
 
     def logInAs(self, user, *, password=None):
-        raise RuntimeError('No Log In method provided for tests. Subclass BrowserTestCase and override logInAs')
+        if self._loginPage is None:
+            raise RuntimeError('No Log In page provided; set the _loginPage class attribute')
+        self.browseToPage(self._loginPage)
+        self.page.enter_username(user.username)
+        self.page.enter_password(self.getPasswordForUser(user))
+        self.page.submit_login()
+        type(self)._loggedInUser = user
 
     def logOut(self):
         raise RuntimeError('No Log Out method provided for tests. Subclass BrowserTestCase and override logOut')
+
+    def _saveUserAndSession(self, user):
+        type(self)._savedObjects.add(user)
+        session = self._findSessionForUser(user)
+        if session is not None:
+            type(self)._savedObjects.add(session)
+
+    def _findSessionForUser(self, user):
+        sessions = Session.objects.all()
+        for session in sessions:
+            data = session.get_decoded()
+            userId = data.get(SESSION_KEY)
+            if userId == user.pk:
+                return session
+        return None
+
+    def _restoreSavedObjects(self):
+        for obj in type(self)._savedObjects:
+            obj.save()
+

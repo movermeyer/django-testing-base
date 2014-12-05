@@ -11,7 +11,7 @@ with open('pip_requirements.txt') as f:
 
 setup(
     name='django-testing-base',
-    version='0.2.0',
+    version='0.3.0',
     packages=find_packages(exclude=['testsite']),
     include_package_data=True,
     install_requires=REQUIREMENTS,

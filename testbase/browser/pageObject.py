@@ -12,18 +12,18 @@ class PageObject(object):
         self._assertBrowserAtThisPage()
 
     @classmethod
-    def _constructPathUrlPath(cls, urlFields):
+    def get_url(cls, urlFields):
         url = reverse(cls._urlPattern, kwargs=urlFields)
         return url
 
     @classmethod
     def get(cls, browser, baseUrl, **urlFields):
-        url = cls._constructPathUrlPath(urlFields)
+        url = cls.get_url(urlFields)
         browser.get(baseUrl + url)
         return cls(browser, **urlFields)
 
     def _assertBrowserAtThisPage(self):
-        expectedPath = self._constructPathUrlPath(self._urlFields)
+        expectedPath = self.get_url(self._urlFields)
 
         currentUrl = self.browser.current_url
         result = urlparse(currentUrl)

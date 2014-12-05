@@ -7,7 +7,7 @@ from django.utils import translation
 
 
 class BaseTestCase(metaclass=ABCMeta):
-    def __init__(self):
+    def setUp(self):
         self._loggedInUser = None
         self._passwordsByUser = {}
 
