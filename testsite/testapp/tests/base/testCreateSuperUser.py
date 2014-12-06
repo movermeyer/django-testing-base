@@ -5,6 +5,7 @@ from testbase.unit import UnitTestCase
 
 class TestCreateAdminUser(UnitTestCase):
     def setUp(self):
+        super().setUp()
         name = self.randStr()
         self.createSuperUser(userName=name)
         self.user = User.objects.get(username=name)

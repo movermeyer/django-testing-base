@@ -5,6 +5,7 @@ from testbase.unit import UnitTestCase
 
 class TestCreateUser(UnitTestCase):
     def setUp(self):
+        super().setUp()
         self.name = self.randStr()
         self.password = self.randStr()
         self.email = '{}@{}.com'.format(self.randStr(), self.randStr()).lower()
