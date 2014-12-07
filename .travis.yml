@@ -5,6 +5,8 @@ python:
 env:
   - DJANGO_VERSION=1.6 BROWSER=Firefox
   - DJANGO_VERSION=1.7 BROWSER=Firefox
+services:
+  - selenium
 before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
