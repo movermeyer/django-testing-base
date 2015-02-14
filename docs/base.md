@@ -57,3 +57,7 @@ omitted. In this case the test client's session (i.e. `self.client.session`) wil
 ### assertEmailSent(numberOfEmails=1)
 
 Asserts that the given number of emails was sent using Django's mail module.
+
+### getEmailsWithSubject(subject)
+
+Returns, as a list, all emails that were sent with the given subject.

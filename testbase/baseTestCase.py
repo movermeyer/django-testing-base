@@ -66,3 +66,6 @@ class BaseTestCase(metaclass=ABCMeta):
     def _cachePasswordForUser(self, user, password):
         self._passwordsByUser[user] = password
 
+    def getEmailsWithSubject(self, subject):
+        return [email for email in mail.outbox if email.subject == subject]
+

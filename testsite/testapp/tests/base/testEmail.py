@@ -20,5 +20,9 @@ class TestEmail(UnitTestCase):
         except AssertionError:
             pass
 
+    def test_findEmailsWithSubject(self):
+        emails = self.getEmailsWithSubject(self.subject)
+        self.assertEqual(len(emails), 1)
+        self.assertEqual(emails[0].body, self.body)
 
 
