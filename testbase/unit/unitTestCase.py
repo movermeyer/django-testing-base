@@ -21,7 +21,10 @@ class UnitTestCase(TestCase, BaseTestCase):
     def response(self):
         return self._response
 
-    def logInAs(self, user, *, password=None):
+    def logInAs(self, user=None, *, password=None):
+        if user is None:
+            user = self.createUser()
+
         username = user.username
         password = self.getPasswordForUser(user, password)
 
@@ -29,6 +32,7 @@ class UnitTestCase(TestCase, BaseTestCase):
         if not result:
             raise RuntimeError('Failed to login as user [{}] with password [{}]'.format(username, password))
         self._loggedInUser = user
+        return self._loggedInUser
 
     def logOut(self):
         self.client.logout()

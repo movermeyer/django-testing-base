@@ -25,11 +25,15 @@ Create a new user in the database. Any arguments not given will be generated ran
 `is_staff` flag while `CreateSuperUser` gets both the `is_staff` and `is_superuser` flags. Users are also given
 randomly generated first and last names.
 
-### logInAs(user, *, password=None)
+### logInAs(user=None, *, password=None) -> User
 
-Log the specified user into the site. The `password` keyword argument only needs to be supplied if the user was _not_
-created using one of the `createUser` methods of if the code needs to give a purposefully incorrect 
+Log the specified user into the site. If no user is given then one will be created.
+
+The `password` keyword argument only needs to be supplied if the user was _not_
+created using one of the `createUser` methods or if the code needs to give a purposefully incorrect 
 password.
+
+This method returns the logged in user upon success.
 
 For unit tests this method will log in using the Django test client (i.e. `self.client`).
 

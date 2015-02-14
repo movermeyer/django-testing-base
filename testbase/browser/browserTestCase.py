@@ -56,14 +56,17 @@ class BrowserTestCase(LiveServerTestCase, BaseTestCase):
     def browseToPageUnderTest(self):
         self.browseToPage(self._pageClass, **self._urlFields)
 
-    def logInAs(self, user, *, password=None):
+    def logInAs(self, user=None, *, password=None):
         if self._loginPage is None:
             raise RuntimeError('No Log In page provided; set the _loginPage class attribute')
+        if user is None:
+            user = self.createUser()
         self.browseToPage(self._loginPage)
         self.page.enter_username(user.username)
         self.page.enter_password(self.getPasswordForUser(user))
         self.page.submit_login()
         type(self)._loggedInUser = user
+        return user
 
     def logOut(self):
         raise RuntimeError('No Log Out method provided for tests. Subclass BrowserTestCase and override logOut')

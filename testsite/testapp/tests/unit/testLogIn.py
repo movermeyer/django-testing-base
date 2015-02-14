@@ -9,3 +9,7 @@ class TestLogIn(UnitTestCase):
         response = self.get('requires_login')
         self.assertResponseStatusIsOk(response)
 
+    def test_createsUserIfNoneSupplied(self):
+        user = self.logInAs()
+        response = self.get('requires_login')
+        self.assertResponseStatusIsOk(response)
