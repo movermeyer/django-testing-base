@@ -25,4 +25,12 @@ class TestEmail(UnitTestCase):
         self.assertEqual(len(emails), 1)
         self.assertEqual(emails[0].body, self.body)
 
+    def test_findEmailsToRecipient(self):
+        emails = self.getEmailsToRecipient(self.toAddress2)
+        self.assertEqual(len(emails), 1)
+        self.assertEqual(emails[0].body, self.body)
+        emails = self.getEmailsToRecipient(self.toAddress1)
+        self.assertEqual(len(emails), 2)
+
+
 

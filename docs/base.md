@@ -61,3 +61,7 @@ Asserts that the given number of emails was sent using Django's mail module.
 ### getEmailsWithSubject(subject)
 
 Returns, as a list, all emails that were sent with the given subject.
+
+### getEmailsToRecipient(address)
+
+Returns, as a list, all emails that were sent to the given email address.

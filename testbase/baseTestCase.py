@@ -69,3 +69,6 @@ class BaseTestCase(metaclass=ABCMeta):
     def getEmailsWithSubject(self, subject):
         return [email for email in mail.outbox if email.subject == subject]
 
+    def getEmailsToRecipient(self, address):
+        return [email for email in mail.outbox if address in email.to]
+
