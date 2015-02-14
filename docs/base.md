@@ -50,3 +50,6 @@ For browser tests this method will direct the browser trigger a log out operatio
 Cause the given session object to expire immediately. When using `UnitTestCase` the `session` argument can be
 omitted. In this case the test client's session (i.e. `self.client.session`) will be expired.
 
+### assertEmailSent(numberOfEmails=1)
+
+Asserts that the given number of emails was sent using Django's mail module.

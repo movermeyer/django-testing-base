@@ -1,6 +1,7 @@
 import string
 
 from abc import ABCMeta, abstractmethod
+from django.core import mail
 from random import choice
 from django.contrib.auth.models import User
 from django.utils import translation
@@ -58,6 +59,9 @@ class BaseTestCase(metaclass=ABCMeta):
 
     def getPasswordForUser(self, user, default=None):
         return self._passwordsByUser.get(user, default)
+
+    def assertEmailSent(self, numberOfEmails=1):
+        self.assertEqual(len(mail.outbox), numberOfEmails)
 
     def _cachePasswordForUser(self, user, password):
         self._passwordsByUser[user] = password
