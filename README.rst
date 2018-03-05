@@ -5,22 +5,22 @@ django-testing-base
     :target: http://django-testing-base.readthedocs.org/en/latest/
     :alt: Documentation
     
-.. image:: https://pypip.in/version/django-testing-base/badge.svg?text=version&style=flat
+.. image:: https://img.shields.io/pypi/v/django-testing-base.svg?label=version&style=flat
     :target: https://pypi.python.org/pypi/django-testing-base/
     :alt: Latest Version
 
-.. image:: https://pypip.in/status/django-testing-base/badge.svg?style=flat
+.. image:: https://img.shields.io/pypi/status/django-testing-base.svg?style=flat
     :target: https://pypi.python.org/pypi/django-testing-base/
     :alt: Development Status
 
-.. image:: https://pypip.in/py_versions/django-testing-base/badge.svg?style=flat
+.. image:: https://img.shields.io/pypi/pyversions/django-testing-base.svg?style=flat
     :target: https://pypi.python.org/pypi/django-testing-base/
     :alt: Supported Python versions
 
 .. image:: http://img.shields.io/badge/django-1.6%2C%201.7-green.svg?style=flat
     :alt: Django Version
 
-.. image:: https://pypip.in/license/django-testing-base/badge.svg?style=flat
+.. image:: https://img.shields.io/pypi/l/django-testing-base.svg?style=flat
     :target: https://pypi.python.org/pypi/django-testing-base/
     :alt: License
 
@@ -28,7 +28,7 @@ django-testing-base
      :target: https://requires.io/github/tctimmeh/django-testing-base/requirements/?branch=master
      :alt: Requirements Status
 
-.. image:: https://pypip.in/download/django-testing-base/badge.svg?period=month&style=flat
+.. image:: https://img.shields.io/pypi/dm/django-testing-base.svg?style=flat
     :target: https://pypi.python.org/pypi//django-testing-base/
     :alt: Downloads
 
